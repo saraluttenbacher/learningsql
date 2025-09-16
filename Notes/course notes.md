@@ -1,8 +1,10 @@
-# SQL Statements
+# Notes
 
-This document provides a list of SQL statements used in the course _Learning SQL Programming_ from LinkedIn Learning.
-
-Note that this list contains statements which are improper (they have syntax errors) and statements which are incorrect (they do not achieve the desired goal).
+- Database used in course = Quiz Data
+  - Two tables
+    - people - 1000 fake quiz participants
+    - states - states in USA
+- Download DB Browser for SQLite to follow along with course
 
 ## 00_02
 
