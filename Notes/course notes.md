@@ -4,8 +4,23 @@
   - Two tables
     - people - 1000 fake quiz participants
     - states - states in USA
-- Download DB Browser for SQLite to follow along with course
+- In github coderspace:
+  - ctrl+shift+P opens command bar
+  - run command for SQLite: open database, select database and open
+  - create a .sql file named working, save code there. right click and select run code to run.
 
+ ## What is a database?
+
+ - collection of information and relationships between data
+  - stored in columns (fields) and rows (records) = tables
+- all records have the same fields
+- database = tables and the relationships we set between the tables
+- schema = layout of fields, tables, and relationships
+
+## What is SQL?
+- Structured Query Language - manipulate and define data in database
+  - how we write the questions we want to ask the database
+  - 
 ## 00_02
 
 ```SQL
