@@ -40,37 +40,23 @@
 ## Select Statement
 - Tells SQL we want it to choose specific piece of data
 - Select statement can also return text
-```SQL
-SELECT 'Hello, World!;
-```
+- ```SQL
+  SELECT field_name FROM table_name;
+  ```
+- Single Quotes '' will return text
+- ```SQL
+  SELECT 'Hello, World!;
+  ```
+- Select multiple fields by listing them out and seperating them with a comma
+- ```SQL
+  SELECT first_name, last_name FROM people;
+  ```
+  - You can select the fields in whatever order you would like
+- * is a wildcard character. It will select all the columns in a table
+- ```SQL
+  SELECT * FROM people;
+  ```
 
-```SQL
-SELECT first_name FROM people;
-```
-
-```SQL
-SELECT last_name FROM people;
-```
-
-```SQL
-SELECT first_name, last_name FROM people;
-```
-
-```SQL
-SELECT last_name, first_name FROM people;
-```
-
-```SQL
-SELECT * FROM people;
-```
-
-```SQL
-SELECT first_name, state_code, company FROM people;
-```
-
-```SQL
-SELECT company, first_name, quiz_points FROM people;
-```
 
 ## 01_02
 
