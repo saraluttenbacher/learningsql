@@ -20,19 +20,26 @@
 ## What is SQL?
 - Structured Query Language - manipulate and define data in database
   - how we write the questions we want to ask the database
-  - 
-## 00_02
+- Write a question a computer can understand
+  - series of smaller questions chained together
+- SQL is used in alot of databases
+- Dual role of SQL - can be used as a Data Manipulation Language or Data Definition Language
+  - CRUD records
+  - edit schema
+  
 
-```SQL
-SELECT * FROM people;
-```
+### SQL Statements
+- something you write in SQL to get info from or change a database is a statement
+- SQL is whitespace independant (ignore white spaces)
+- Statements made of clauses
+- clauses made of key words, operators, field names, table names, and predicates
+  - key words and operators are ALL CAPS
+- Semicolon at end of every statement
 
-```SQL
-SELECT first_name FROM people;
-```
 
-## 01_01
-
+## Select Statement
+- Tells SQL we want it to choose specific piece of data
+- Select statement can also return text
 ```SQL
 SELECT 'Hello, World!;
 ```
