@@ -58,58 +58,26 @@
   ```
 
 
-## 01_02
-
-```SQL
-SELECT * FROM people WHERE state_code='CA';
-```
-
-```SQL
-SELECT * FROM people WHERE state_code='ca';
-```
-
-```SQL
-SELECT * FROM people WHERE state_code='FL';
-```
-
-```SQL
-SELECT * FROM people WHERE state_code='WA';
-```
-
-```SQL
-SELECT * FROM people WHERE state_code='NY';
-```
-
-```SQL
-SELECT * FROM people WHERE shirt_or_hat='shirt';
-```
-
-```SQL
-SELECT first_name, last_name FROM people WHERE shirt_or_hat='shirt';
-```
-
-```SQL
-SELECT first_name, last, name, shirt_or_hat
-FROM people
-WHERE
-shirt_or_hat='shirt';
-```
-
-```SQL
-/* Improper Statement */
-WHERE shirt_or_hat='shirt'
-FROM people
-SELECT first_name, last_name, shirt_or_hat;
-```
-
-```SQL
-/* Improper Statement */
-FROM people
-SELECT first_name, last_name, shirt_or_hat
-WHERE shirt_or_hat='shirt';
-```
-
-## 01_03
+## WHERE Statement
+- Filter results from SELECT with a WHERE statement
+- ```SQL
+  SELECT * FROM people WHERE state_code='CA';
+  ```
+  - Beware: Some fields are set up as case sensitive. Searching for 'ca' returns nothing
+- Use whitespace/newlines to make code easier for humans to read
+- ```SQL
+  SELECT first_name, last, name, shirt_or_hat
+  FROM people
+  WHERE
+  shirt_or_hat='shirt';
+  ```
+- ORDER MATTERS!!! SELECT, then FROM, then WHERE. SQL will not understand a different clause order
+- ```SQL
+  /* Improper Statement */
+  WHERE shirt_or_hat='shirt'
+  FROM people
+  SELECT first_name, last_name, shirt_or_hat;
+  ```
 
 ```SQL
 SELECT first_name, last_name FROM people WHERE state_code='CA' AND shirt_or_hat='shirt';
