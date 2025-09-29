@@ -79,45 +79,35 @@
   SELECT first_name, last_name, shirt_or_hat;
   ```
 
-```SQL
-SELECT first_name, last_name FROM people WHERE state_code='CA' AND shirt_or_hat='shirt';
-```
+## Logical Statements and Operators
+- The logical statement AND lets you set multiple different criteria for a filter.
+- ```SQL
+  SELECT first_name, last_name FROM people WHERE state_code='CA' AND shirt_or_hat='shirt';
+  ```
+- ```SQL
+  SELECT team, first_name, last_name FROM people WHERE state_code='CA' AND shirt_or_hat='shirt' AND team='Angry Ants';
+  ```
+- Adding an ! before an = tells SQL you want to exclude that value from your query
+- ```SQL
+  SELECT team, first_name, last_name FROM people WHERE state_code='CA' AND shirt_or_hat='shirt' AND team!='Angry Ants';
+  ```
+  - You can also use <> and IS NOT for not equal to.
 
-```SQL
-SELECT team, first_name, last_name FROM people WHERE state_code='CA' AND shirt_or_hat='shirt' AND team='Angry Ants';
-```
-
-```SQL
-SELECT team, first_name, last_name FROM people WHERE state_code='CA' AND shirt_or_hat='shirt' AND team!='Angry Ants';
-```
-
-```SQL
-SELECT team, first_name, last_name FROM people WHERE state_code='CA' AND shirt_or_hat='shirt' AND team IS 'Angry Ants';
-```
-
-```SQL
-SELECT team, first_name, last_name FROM people WHERE state_code='CA' AND shirt_or_hat='shirt' AND team IS NOT 'Angry Ants';
-```
-
-```SQL
-SELECT team, first_name, last_name FROM people WHERE state_code='CA' AND shirt_or_hat='shirt' AND team <> 'Angry Ants';
-```
-
-```SQL
-SELECT team, first_name, last_name FROM people WHERE state_code='CA' OR state_code='CO' AND shirt_or_hat='shirt' AND team IS 'Angry Ants';
-```
-
-```SQL
-SELECT team, first_name, last_name, shirt_or_hat, state_code FROM people WHERE state_code='CA' OR state_code='CO' AND shirt_or_hat='shirt' AND team IS 'Angry Ants';
-```
-
-```SQL
-SELECT team, first_name, last_name, shirt_or_hat, state_code FROM people WHERE (state_code='CA' OR state_code='CO') AND shirt_or_hat='shirt' AND team IS 'Angry Ants';
-```
-
-```SQL
-SELECT team, first_name, last_name, shirt_or_hat, state_code FROM people WHERE state_code='CA' OR (state_code='CO' AND shirt_or_hat='shirt') AND team IS 'Angry Ants';
-```
+ - You can use IS and IS NOT in place of an equals symbol
+- ```SQL
+  SELECT team, first_name, last_name FROM people WHERE state_code='CA' AND shirt_or_hat='shirt' AND team IS 'Angry Ants';
+  ```
+- ```SQL
+  SELECT team, first_name, last_name FROM people WHERE state_code='CA' AND shirt_or_hat='shirt' AND team IS NOT 'Angry Ants';
+  ```
+- Use OR to return either of two criteria
+- ```SQL
+  SELECT team, first_name, last_name FROM people WHERE state_code='CA' OR state_code='CO' AND shirt_or_hat='shirt' AND team IS 'Angry Ants';
+  ```
+- Use parenthesis to tell SQL what order to read the clauses in
+- ```SQL
+  SELECT team, first_name, last_name, shirt_or_hat, state_code FROM people WHERE (state_code='CA' OR state_code='CO') AND shirt_or_hat='shirt' AND team IS 'Angry Ants';
+  ```
 
 ## 01_04
 
