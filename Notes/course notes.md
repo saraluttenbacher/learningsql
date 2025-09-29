@@ -109,114 +109,68 @@
   SELECT team, first_name, last_name, shirt_or_hat, state_code FROM people WHERE (state_code='CA' OR state_code='CO') AND shirt_or_hat='shirt' AND team IS 'Angry Ants';
   ```
 
-## 01_04
+## LIKE Operator
 
-```SQL
-SELECT * FROM people WHERE state_code='CA' OR state_code='CO' OR state_code='CT';
-```
+- Use the LIKE operator and the wildcard % to return results where part of the string is a match
+- ```SQL
+  SELECT first_name, last_name, state_Code
+  FROM people
+  WHERE state_code LIKE 'C%';
+  ```
+  - % can come before, after, or on both sides of the constant
+  - % can be any length of text
+  - some fields are case sensitive and some are not - depends on how field is set up
 
-```SQL
-SELECT first_name, last_name, state_Code FROM people WHERE state_code LIKE 'C%';
-```
+## LIMIT Operator
 
-```SQL
-SELECT first_name, last_name, state_Code FROM people WHERE first_name LIKE 'A%';
-```
+- limit the number of results that get returned with LIMIT
+- ```SQL
+  SELECT * FROM people
+  WHERE company
+  LIKE '%LLC'
+  LIMIT 5;
+  ```
+  - returns the first n records
+- use OFFSET after limit to return n records after the first k records
+- ```SQL
+  SELECT *
+  FROM people
+  WHERE company
+  LIKE '%LLC'
+  LIMIT 10 OFFSET 5;
+  ```
 
-```SQL
-SELECT first_name, last_name, state_Code FROM people WHERE first_name LIKE 'J%';
-```
+## ORDER BY
+- by default, SQL will return the results in the order that they are stored in the database
+- Use ORDERBY to sort the result alphanumerically by the specified field.
+- ```SQL
+  SELECT first_name, last_name
+  FROM people
+  ORDER BY first_name;
+  ```
+  - Ascending order by default
+  - You can add ASC or DESC after the column name to specify ascending or descending order. 
+  - You can add multiple criteria to order by
+ 
+## LENGTH, DISTINCT, COUNT
 
-```SQL
-SELECT first_name, last_name, state_Code FROM people WHERE first_name LIKE '%J%';
-```
-
-```SQL
-SELECT first_name, last_name, state_Code FROM people WHERE first_name LIKE 'b%n';
-```
-
-```SQL
-SELECT * FROM people WHERE company LIKE '%LLC';
-```
-
-```SQL
-SELECT * FROM people WHERE company LIKE '%LLC' LIMIT 5;
-```
-
-```SQL
-SELECT * FROM people WHERE company LIKE '%LLC' LIMIT 10;
-```
-
-```SQL
-SELECT * FROM people WHERE company LIKE '%LLC' LIMIT 10 OFFSET 5;
-```
-
-## 01_05
-
-```SQL
-SELECT first_name, last_name FROM people;
-```
-
-```SQL
-SELECT first_name, last_name FROM people ORDER BY first_name;
-```
-
-```SQL
-SELECT first_name, last_name FROM people ORDER BY first_name ASC;
-```
-
-```SQL
-SELECT first_name, last_name FROM people ORDER BY first_name DESC;
-```
-
-```SQL
-SELECT state_code, last_name, first_name FROM people ORDER BY state_code, last_name;
-```
-
-```SQL
-SELECT state_code, last_name, first_name FROM people ORDER BY state_code, last_name DESC;
-```
-
-## 01_06
-
-```SQL
-SELECT first_name FROM people;
-```
-
-```SQL
-SELECT first_name, LENGTH(first_name) FROM people;
-```
-
-```SQL
-SELECT DISTINCT(first_name) FROM people;
-```
-
-```SQL
-SELECT DISTINCT(first_name) FROM people ORDER BY first_name;
-```
-
-```SQL
-SELECT DISTINCT(shirt_or_hat) FROM people;
-```
-
-```SQL
-SELECT COUNT(*) FROM people WHERE state_code='CA';
-```
-
-```SQL
-SELECT COUNT(first_name) FROM people WHERE state_code='CA';
-```
-
-```SQL
-SELECT COUNT(last_name) FROM people WHERE state_code='CA';
-```
-
-## 01_08
-```SQL
-SELECT first_name, last_name, quiz_points, shirt_or_hat, team
-FROM people 
-ORDER BY shirt_or_hat, team;
-```
+- to get the number of characters in each row for a specified column, use the LENGTH() command
+- ```SQL
+  SELECT first_name, LENGTH(first_name)
+  FROM people;
+  ```
+- to get every unique value from a field, use DISTINCT()
+- ```SQL
+  SELECT DISTINCT(first_name)
+  FROM people;
+  ```
+- Use COUNT to get the number of rows in your dataset that match your filter criteria
+- ```SQL
+  SELECT COUNT(company)
+  FROM people
+  WHERE state_code LIKE '%LLC';
+  ```
+  - this will return the number of companies that end in LLC in your dataset
 
 ## 02_01
 
