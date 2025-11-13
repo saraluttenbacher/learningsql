@@ -172,75 +172,40 @@
   ```
   - this will return the number of companies that end in LLC in your dataset
 
-## 02_01
+## JOIN
 
-```SQL
-SELECT first_name, state_code FROM people;
-```
-
-```SQL
-SELECT first_name, state_code 
-FROM people 
-JOIN states ON people.state_code=states.state_abbrev;
-```
-
-```SQL
-SELECT people.first_name, people.state_code, states.division 
-FROM people 
-JOIN states ON people.state_code = states.state_abbrev;
-```
-
-```SQL
-SELECT * FROM people JOIN states ON people.state_code=states.state_abbrev;
-```
-
-```SQL
-SELECT * FROM people 
-JOIN states ON people.state_code = states.state_abbrev 
-WHERE people.first_name LIKE 'j%' AND states.region = 'South';
-```
-
-```SQL
-SELECT people.first_name, states.state_name 
-FROM people, states 
-WHERE people.state_code=states.state_abbrev;
-```
-
-```SQL
-SELECT ppl.first_name, st.state_name 
-FROM people ppl, states st 
-WHERE ppl.state_code=st.state_abbrev;
-```
-
-## 02_02
-
-```SQL
-SELECT people.first_name, people.last_name, people.state_code, states.state_name 
-FROM people 
-JOIN states 
-ON people.state_code=states.state_abbrev;
-```
-
-```SQL
-SELECT people.first_name, people.last_name, people.state_code, states.state_name 
-FROM states 
-JOIN people 
-ON people.state_code=states.state_abbrev;
-```
-
-```SQL
-SELECT people.first_name, people.last_name, people.state_code, states.state_name 
-FROM states 
-LEFT JOIN people 
-ON people.state_code=states.state_abbrev;
-```
-
-```SQL
-SELECT DISTINCT(people.state_code), states.state_name 
-FROM states 
-LEFT JOIN people 
-ON people.state_code=states.state_abbrev;
-```
+- use the join command to merge data from two different tables using a common value/key
+- ```SQL
+  SELECT first_name, state_code 
+  FROM people 
+  JOIN states ON people.state_code=states.state_abbrev;
+  ```
+- After joining, you can continue your query, joining other tables or using WHERE clauses
+- Use the table.column name convention for clarity
+- Dirty join - join implicitly by selecting data from two different tables in the SELECT clause
+  - Can cause issues, cross joining. Be careful
+- nickname tables in the FROM clause
+  - ```SQL
+    SELECT ppl.first_name, st.state_name 
+    FROM people ppl, states st 
+    WHERE ppl.state_code=st.state_abbrev;
+    ```
+### Types of Joins
+- Cross Join - one row of table A for each row of table B
+  - Table is size of table A x table B
+  - not matched on a specified value
+- Inner Join - one row of table A for each matching row in table B
+  - only includes rows from one table that matched up with rows from another table (inner values)
+  - if no match is found, those rows are dropped (outer values)
+- Left Outer Join - all rows from A, matching rows from B
+  - ```SQL
+    SELECT people.first_name, people.last_name, people.state_code, states.state_name 
+    FROM states 
+    LEFT JOIN people 
+    ON people.state_code=states.state_abbrev;
+    ```
+  - if key isn't found in right table, NULL values returned
+- Right Outer Join - all rows from B, matching rows from A
 
 ## 02_03
 
