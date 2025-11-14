@@ -207,68 +207,34 @@
   - if key isn't found in right table, NULL values returned
 - Right Outer Join - all rows from B, matching rows from A
 
-## 02_03
+## Group By
+- Groups result by unique values in a specified column
+- ```SQL
+  SELECT first_name, COUNT(first_name) 
+  FROM people  
+  GROUP BY first_name;
+  ```
+  - Returns a count of how many times each first name appears in the dataset
 
-```SQL
-/* Incorrect statement */
-SELECT first_name, COUNT(first_name) FROM people;
-```
+- ```SQL
+  SELECT state_code, COUNT(state_code) 
+  FROM people 
+  GROUP BY state_code;
+  ```
+  - Counts how many people come from each state
+- Use multiple criteria in group by to group by criteria A, then criterea B
+- ```SQL
+  SELECT state_code, quiz_points, COUNT(quiz_points)
+  FROM people
+  GROUP BY state_code, quiz_points
+  ```
 
-```SQL
-SELECT first_name, COUNT(first_name) 
-FROM people 
-GROUP BY first_name;
-```
-
-```SQL
-/* Incorrect statement */
-SELECT first_name, COUNT(first_name) 
-FROM people 
-GROUP BY last_name;
-```
-
-```SQL
-SELECT last_name, COUNT(last_name) 
-FROM people 
-GROUP BY last_name;
-```
-
-```SQL
-SELECT state_code, COUNT(state_code) 
-FROM people 
-GROUP BY state_code;
-```
-
-```SQL
-/* Incorrect Statement */
-SELECT state_code, quiz_points, COUNT(quiz_points)
-FROM people
-GROUP BY quiz_points
-```
-
-```SQL
-SELECT state_code, quiz_points, COUNT(quiz_points)
-FROM people
-GROUP BY state_code, quiz_points
-```
-
-## 02_05
-
-```SQL
-SELECT states.state_name, COUNT(people.shirt_or_hat) 
-FROM states 
-JOIN people ON states.state_abbrev=people.state_code 
-WHERE people.shirt_or_hat='hat'
-GROUP BY people.shirt_or_hat, states.state_name;
-```
-
-```SQL
-SELECT states.division, people.team, count(people.team) 
-FROM states
-JOIN people ON states.state_abbrev=people.state_code 
-GROUP BY states.division, people.team;
-```
-
+## Data Types
+- A data type is the kind of data stored in a field
+    - Can be text, binary, numeric, etc.
+    - Certain operations are not possible with certain types of data
+<img width="1316" height="702" alt="image" src="https://github.com/user-attachments/assets/9bd7adc0-03f1-445b-880f-9e13fdcfc978" />
+- Boolean = true, false, and null
 ## 03_02
 
 ```SQL
